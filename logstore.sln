@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logstore", "logstore\logsto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logstore.Tests", "logstore.Tests\logstore.Tests.csproj", "{5C22960A-AE92-4BB8-BFFA-7B82CFEC3BD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logstore.IntegrationTests", "logstore.IntegrationTests\logstore.IntegrationTests.csproj", "{BA74D080-9633-4555-B327-8F376D5A5008}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{5C22960A-AE92-4BB8-BFFA-7B82CFEC3BD9}.Release|x64.Build.0 = Release|Any CPU
 		{5C22960A-AE92-4BB8-BFFA-7B82CFEC3BD9}.Release|x86.ActiveCfg = Release|Any CPU
 		{5C22960A-AE92-4BB8-BFFA-7B82CFEC3BD9}.Release|x86.Build.0 = Release|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Debug|x64.Build.0 = Debug|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Debug|x86.Build.0 = Debug|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Release|x64.ActiveCfg = Release|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Release|x64.Build.0 = Release|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA74D080-9633-4555-B327-8F376D5A5008}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
