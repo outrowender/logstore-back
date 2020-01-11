@@ -19,7 +19,7 @@ namespace logstore.Controllers
         [HttpGet]
         [Route("")]
         [Authorize(Roles = "user")]
-        public async Task<IActionResult> show([FromServices] DataContext _ctx, [FromServices] IMapper _mapper)
+        public async Task<IActionResult> showAsync([FromServices] DataContext _ctx, [FromServices] IMapper _mapper)
         {
             var userId = Convert.ToInt32(User.FindFirst("subject")?.Value);
 
@@ -33,7 +33,7 @@ namespace logstore.Controllers
         [HttpPost]
         [Route("")]
         [AllowAnonymous]
-        public async Task<IActionResult> store([FromServices] DataContext _ctx, [FromServices] IMapper _mapper, [FromServices] TokenService _tokenService, [FromBody] UserViewModel model)
+        public async Task<IActionResult> storeAsync([FromServices] DataContext _ctx, [FromServices] IMapper _mapper, [FromServices] TokenService _tokenService, [FromBody] UserViewModel model)
         {
             if (ModelState.IsValid)
             {

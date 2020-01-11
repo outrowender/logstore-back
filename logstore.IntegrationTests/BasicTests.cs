@@ -2,36 +2,25 @@ using System;
 using Xunit;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace logstore.IntegrationTests
 {
-    public class BasicTests : IClassFixture<WebApplicationFactory<Startup>>
+    public class BasicTests : IntegrationTests
     {
-        private readonly WebApplicationFactory<Startup> _factory;
-
-        public BasicTests(WebApplicationFactory<Startup> factory)
-        {
-            _factory = factory;
-        }
 
         [Theory]
-        [InlineData("/")]
-        [InlineData("/Index")]
-        [InlineData("/About")]
-        [InlineData("/Privacy")]
-        [InlineData("/Contact")]
-        public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
+        [InlineData("v1/user")]
+        [InlineData("v1/notes")]
+        [InlineData("v1/auth")]
+        public async Task shoud_found_main_endpoints(string url)
         {
             // Arrange
-            var client = _factory.CreateClient();
-
             // Act
-            var response = await client.GetAsync(url);
+            var response = await _client.GetAsync(url);
 
             // Assert
-            response.EnsureSuccessStatusCode();
-            Assert.Equal("text/html; charset=utf-8",
-                response.Content.Headers.ContentType.ToString());
+            Assert.False(response.StatusCode == HttpStatusCode.NotFound);
         }
     }
 }

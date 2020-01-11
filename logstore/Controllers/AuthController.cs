@@ -20,7 +20,7 @@ namespace logstore.Controllers
         [Route("")]
         [AllowAnonymous]
 
-        public async Task<IActionResult> login([FromServices] DataContext _ctx, [FromServices] IMapper _mapper, [FromServices] TokenService _tokenService, [FromBody] UserAuthViewModel model)
+        public async Task<IActionResult> loginAsync([FromServices] DataContext _ctx, [FromServices] IMapper _mapper, [FromServices] TokenService _tokenService, [FromBody] UserAuthViewModel model)
         {
 
             var user = _mapper.Map<User>(model);

@@ -19,7 +19,7 @@ namespace logstore.Controllers
         [HttpGet]
         [Route("")]
         [Authorize(Roles = "user")]
-        public async Task<IActionResult> index([FromServices] DataContext _ctx)
+        public async Task<IActionResult> indexAsync([FromServices] DataContext _ctx)
         {
             var userId = Convert.ToInt32(User.FindFirst("subject")?.Value);
 
@@ -31,7 +31,7 @@ namespace logstore.Controllers
         [HttpPost]
         [Route("")]
         [Authorize(Roles = "user")]
-        public async Task<IActionResult> store([FromServices] DataContext _ctx, [FromBody] Note model)
+        public async Task<IActionResult> storeAsync([FromServices] DataContext _ctx, [FromBody] Note model)
         {
             model.UserId = Convert.ToInt32(User.FindFirst("subject")?.Value);
 
@@ -53,7 +53,7 @@ namespace logstore.Controllers
         [HttpDelete]
         [Route("{id:int}")]
         [Authorize(Roles = "user")]
-        public async Task<IActionResult> delete([FromServices] DataContext _ctx, int id)
+        public async Task<IActionResult> deleteAsync([FromServices] DataContext _ctx, int id)
         {
             var userId = Convert.ToInt32(User.FindFirst("subject")?.Value);
 

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using logstore.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,7 +31,13 @@ namespace logstore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("home")));
+            services.AddDbContext<DataContext>(opt => {
+            
+                opt.UseSqlServer(Configuration.GetConnectionString("home"));
+
+                //opt.UseInMemoryDatabase("TestDB");
+            
+            });
             services.AddScoped<DataContext, DataContext>();
 
             //injeta o servico de token
