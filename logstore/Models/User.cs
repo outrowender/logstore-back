@@ -12,6 +12,7 @@ namespace logstore.Models
 
         [Required(ErrorMessage = "The field name is required")]
         [MinLength(2, ErrorMessage = "The field name shoud be greater than 2 characters")]
+        [MaxLength(50, ErrorMessage = "The field name shoud be greater than 2 characters")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "The field email is required")]

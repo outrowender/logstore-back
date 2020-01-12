@@ -31,12 +31,13 @@ namespace logstore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(opt => {
-            
+            services.AddDbContext<DataContext>(opt =>
+            {
+
                 opt.UseSqlServer(Configuration.GetConnectionString("home"));
 
                 //opt.UseInMemoryDatabase("TestDB");
-            
+
             });
             services.AddScoped<DataContext, DataContext>();
 
@@ -63,6 +64,17 @@ namespace logstore
                         ValidateAudience = false
                     };
                 });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("logstore_origins",
+                builder =>
+                {
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyOrigin();
+                });
+            });
 
             // services.AddSwaggerGen(
             //  swagger =>
@@ -100,6 +112,8 @@ namespace logstore
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors("logstore_origins");
 
             app.UseEndpoints(endpoints =>
             {
